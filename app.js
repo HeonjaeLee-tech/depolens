@@ -292,5 +292,5 @@ document.querySelectorAll(".doe-ctl button").forEach(b => b.addEventListener("cl
   drawDoe();
 }));
 
-drawDoe();
+if (document.getElementById("doe-grid")) drawDoe();
 initNand();

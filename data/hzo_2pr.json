@@ -1,0 +1,342 @@
+{
+ "material": "HZO",
+ "property": "2Pr",
+ "unit": "µC/cm²",
+ "method": "ALD",
+ "structure": "MFM 커패시터",
+ "note": "논문 본문과 초록에 숫자로 적힌 값만 사용. 그림에만 있는 값, 다른 구조(MFIS, Al2O3 삽입층, ZrO2 이중층)와 스퍼터 시료는 제외. Pr로 보고된 값은 2배 해서 2Pr로 통일.",
+ "papers": [
+  {
+   "id": "smith2018",
+   "ref": "Smith 외, Appl. Phys. Lett. (2018)",
+   "title": "Thickness scaling of pyroelectric response in thin ferroelectric Hf1−xZrxO2 films",
+   "url": "https://scispace.com/papers/thickness-scaling-of-pyroelectric-response-in-thin-2bj71piq5o",
+   "electrode": "TaN",
+   "zr": 0.42,
+   "anneal": null,
+   "points": [
+    [
+     5,
+     5.6
+    ],
+    [
+     20,
+     34
+    ]
+   ],
+   "src": "초록: Pr 2.8 → 17 µC/cm² (5 → 20 nm)"
+  },
+  {
+   "id": "kim2018",
+   "ref": "S. J. Kim 외, Appl. Phys. Lett. (2018)",
+   "title": "Low-voltage operation and high endurance of 5-nm ferroelectric Hf0.5Zr0.5O2 capacitors",
+   "url": "https://scispace.com/papers/low-voltage-operation-and-high-endurance-of-5-nm-4qe2vrd7wh",
+   "electrode": "TiN",
+   "zr": 0.5,
+   "anneal": 450,
+   "points": [
+    [
+     5,
+     20
+    ]
+   ],
+   "src": "초록: Pr 약 10 µC/cm² (2Pr 20)"
+  },
+  {
+   "id": "wang2021",
+   "ref": "C.-I. Wang 외, J. Mater. Chem. C (2021)",
+   "title": "Evolution of pronounced ferroelectricity in Hf0.5Zr0.5O2 thin films scaled down to 3 nm",
+   "url": "https://scispace.com/papers/evolution-of-pronounced-ferroelectricity-in-hf0-5zr0-5o2-1ccqmstwbu",
+   "electrode": "Pt/TiN",
+   "zr": 0.5,
+   "anneal": null,
+   "points": [
+    [
+     3,
+     21.6
+    ],
+    [
+     6,
+     49.6
+    ]
+   ],
+   "src": "초록과 본문: Pr 10.8 (3 nm), 24.8 (6 nm)"
+  },
+  {
+   "id": "kim2014",
+   "ref": "H. J. Kim 외, Appl. Phys. Lett. (2014)",
+   "title": "Grain size engineering for ferroelectric Hf0.5Zr0.5O2 films by an insertion of Al2O3 interlayer",
+   "url": "https://scispace.com/papers/grain-size-engineering-for-ferroelectric-hf0-5zr0-5o2-films-3is1wjn0ul",
+   "electrode": "TiN/Pt",
+   "zr": 0.5,
+   "anneal": null,
+   "points": [
+    [
+     10,
+     30.7
+    ],
+    [
+     20,
+     31.5
+    ],
+    [
+     40,
+     2.1
+    ]
+   ],
+   "src": "본문: 단일 HZO 층 값만 사용 (Al2O3 삽입 시료 제외)"
+  },
+  {
+   "id": "liao2019",
+   "ref": "J. Liao 외, IEEE Electron Device Lett. (2019)",
+   "title": "Grain Size Engineering of Ferroelectric Zr-doped HfO2 for the Highly Scaled Devices Applications",
+   "url": "https://scispace.com/papers/grain-size-engineering-of-ferroelectric-zr-doped-hfo-2-for-4z5iebw7zu",
+   "electrode": null,
+   "zr": 0.5,
+   "anneal": null,
+   "points": [
+    [
+     12,
+     41
+    ]
+   ],
+   "src": "초록: 12 nm에서 최대 2Pr 41"
+  },
+  {
+   "id": "lee2021",
+   "ref": "Y. H. Lee 외, Appl. Phys. Lett. (2021)",
+   "title": "Unexpectedly large remanent polarization of Hf0.5Zr0.5O2 metal–ferroelectric–metal capacitor fabricated without breaking vacuum",
+   "url": "https://scispace.com/papers/unexpectedly-large-remanent-polarization-of-hf0-5zr0-5o2-2th6hr10ed",
+   "electrode": "TiN",
+   "zr": 0.5,
+   "anneal": null,
+   "points": [
+    [
+     10,
+     54.2
+    ]
+   ],
+   "src": "본문: 10 nm 2Pr 54.2"
+  },
+  {
+   "id": "lv2026",
+   "ref": "Q. Lv 외, Nanotechnology (2026)",
+   "title": "Balancing ferroelectricity and endurance in Hf0.5Zr0.5O2 thin films through mixed-oxygen atomic layer deposition",
+   "url": "https://scispace.com/papers/balancing-ferroelectricity-and-endurance-in-hf-0-5-zr-0-5-o-q69z8dewbcl9",
+   "electrode": null,
+   "zr": 0.5,
+   "anneal": null,
+   "points": [
+    [
+     10,
+     48
+    ]
+   ],
+   "src": "초록: 약 10 nm에서 2Pr 약 48"
+  },
+  {
+   "id": "park2024",
+   "ref": "J. Y. Park 외, ECS Meeting Abstracts (2024)",
+   "title": "A Comprehensive Study of Ferroelectric Properties of Hf1-xZrxO2 Thin Films Grown on Mo Electrode",
+   "url": "https://scispace.com/papers/a-comprehensive-study-of-ferroelectric-properties-of-4mpyoaestxu7",
+   "electrode": "Mo",
+   "zr": null,
+   "anneal": null,
+   "points": [
+    [
+     7.6,
+     57.5
+    ],
+    [
+     10.9,
+     68.3
+    ]
+   ],
+   "src": "본문: Zr 비율 0.5~0.7 범위, 시료별 비율은 명시 안 됨"
+  },
+  {
+   "id": "savichev2025",
+   "ref": "I. A. Savichev 외, Appl. Phys. Lett. (2025)",
+   "title": "Thickness-dependent retention–endurance trade-off in scaled Hf0.5Zr0.5O2 ferroelectric capacitor",
+   "url": "https://scispace.com/papers/thickness-dependent-retention-endurance-trade-off-in-scaled-05kdhnj5eo67",
+   "electrode": "W/TiN",
+   "zr": 0.5,
+   "anneal": null,
+   "points": [
+    [
+     6,
+     41
+    ],
+    [
+     8,
+     41
+    ]
+   ],
+   "src": "초록: 6, 8 nm에서 2Pr 최대 41 (표현이 '최대'라 두 두께에 같은 값)"
+  }
+ ],
+ "excluded": [
+  {
+   "ref": "D.-H. Min 외, IEEE EDL (2019)",
+   "why": "MFIS 구조라 MFM 값과 직접 비교 불가 (20 nm 2Pr 23.4)"
+  },
+  {
+   "ref": "T.-H. Ryu 외, J. Appl. Phys. (2020)",
+   "why": "스퍼터 증착 (20 nm 24.8, 30 nm 9.6)"
+  },
+  {
+   "ref": "T. Onaya 외, Appl. Phys. Lett. (2020)",
+   "why": "단일층 시료의 두께가 본문 추출값에서 불분명"
+  },
+  {
+   "ref": "Salcedo 외, J. Appl. Phys. (2024)",
+   "why": "두께별 수치가 그림에만 있음"
+  },
+  {
+   "ref": "Smith 외 10, 15 nm 값",
+   "why": "그림에만 있음"
+  }
+ ],
+ "lopo": {
+  "none": {
+   "n": 15,
+   "median": 38.18839286960016,
+   "mean": 250.0555153152105
+  },
+  "calibrated": {
+   "n": 11,
+   "median": 62.87834896292402,
+   "mean": 222.27362122597887
+  },
+  "baseline": {
+   "n": 15,
+   "median": 30.158730158730158,
+   "mean": 196.34319273008768
+  },
+  "rows": [
+   {
+    "paper": "smith2018",
+    "t": 5,
+    "y": 5.6,
+    "pred": 32.68,
+    "ape": 483.5
+   },
+   {
+    "paper": "smith2018",
+    "t": 20,
+    "y": 34,
+    "pred": 46.73,
+    "ape": 37.4
+   },
+   {
+    "paper": "kim2018",
+    "t": 5,
+    "y": 20,
+    "pred": 23.11,
+    "ape": 15.6
+   },
+   {
+    "paper": "wang2021",
+    "t": 3,
+    "y": 21.6,
+    "pred": 4.46,
+    "ape": 79.4
+   },
+   {
+    "paper": "wang2021",
+    "t": 6,
+    "y": 49.6,
+    "pred": 24.64,
+    "ape": 50.3
+   },
+   {
+    "paper": "kim2014",
+    "t": 10,
+    "y": 30.7,
+    "pred": 46,
+    "ape": 49.8
+   },
+   {
+    "paper": "kim2014",
+    "t": 20,
+    "y": 31.5,
+    "pred": 59.36,
+    "ape": 88.4
+   },
+   {
+    "paper": "kim2014",
+    "t": 40,
+    "y": 2.1,
+    "pred": 60.21,
+    "ape": 2767
+   },
+   {
+    "paper": "liao2019",
+    "t": 12,
+    "y": 41,
+    "pred": 47.67,
+    "ape": 16.3
+   },
+   {
+    "paper": "lee2021",
+    "t": 10,
+    "y": 54.2,
+    "pred": 41.55,
+    "ape": 23.3
+   },
+   {
+    "paper": "lv2026",
+    "t": 10,
+    "y": 48,
+    "pred": 42.1,
+    "ape": 12.3
+   },
+   {
+    "paper": "park2024",
+    "t": 7.6,
+    "y": 57.5,
+    "pred": 33.13,
+    "ape": 42.4
+   },
+   {
+    "paper": "park2024",
+    "t": 10.9,
+    "y": 68.3,
+    "pred": 42.22,
+    "ape": 38.2
+   },
+   {
+    "paper": "savichev2025",
+    "t": 6,
+    "y": 41,
+    "pred": 27.3,
+    "ape": 33.4
+   },
+   {
+    "paper": "savichev2025",
+    "t": 8,
+    "y": 41,
+    "pred": 35.46,
+    "ape": 13.5
+   }
+  ],
+  "computed": "2026-11-08",
+  "code": "model.js (floor 2%)"
+ },
+ "lopo_history": [
+  {
+   "version": "1차",
+   "change": "연구실 안 흩어짐을 데이터로 추정",
+   "none": 42.4,
+   "calibrated": 36.7,
+   "baseline": 30.2
+  },
+  {
+   "version": "2차 (현재)",
+   "change": "연구실 안 흩어짐을 15%로 가정, 연구실 간 차이만 데이터로 추정",
+   "none": 38.2,
+   "calibrated": 62.9,
+   "baseline": 30.2
+  }
+ ]
+}

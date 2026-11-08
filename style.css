@@ -160,3 +160,5 @@ a { color: inherit; }
 .foot-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 14px; color: var(--muted); }
 .foot p { margin: 0; }
 .foot b { color: var(--ink); margin-right: 8px; }
+.hero-sub h1 { font-size: clamp(44px, 8vw, 88px); }
+.top nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
