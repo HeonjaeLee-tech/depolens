@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DepoLens</title>
+<meta name="description" content="논문 근거로 증착 레시피 후보를 고르고, 오픈소스 TCAD로 소자 결과를 먼저 계산하는 도구">
+<meta property="og:title" content="DepoLens">
+<meta property="og:description" content="논문 근거 증착 레시피 탐색과 오픈소스 TCAD 소자 계산">
+<link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#top"><img src="assets/icon.png" alt="" width="30" height="30"><span>DepoLens</span></a>
+    <nav aria-label="페이지 안 이동">
+      <a href="#nand">계산 결과</a>
+      <a href="#doe">실험 계획</a>
+      <a href="#compare">TCAD 비교</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <h1>DepoLens</h1>
+    <p class="lead">신물질의 증착 레시피 후보를 논문 근거로 고르고, 그 조건으로 만든 소자를 오픈소스 TCAD로 먼저 계산합니다.</p>
+  </section>
+
+  <section id="nand" class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>3D NAND 셀 단면 계산 결과</h2>
+        <p>선택 셀의 게이트 전압을 움직이면, 그 순간에 계산된 단면으로 바뀝니다. 단면을 누르면 그 지점의 값이 나옵니다.</p>
+      </div>
+      <div class="viewer">
+        <figure class="map">
+          <div class="tabs" role="group" aria-label="보여 줄 물리량">
+            <button type="button" data-q="logn" aria-pressed="true">전자 농도</button>
+            <button type="button" data-q="psi" aria-pressed="false">전위</button>
+            <button type="button" data-q="emag" aria-pressed="false">전기장</button>
+            <button type="button" data-q="pol" aria-pressed="false">HZO 분극</button>
+          </div>
+          <canvas id="map" role="img" aria-label="NAND 셀 r–z 단면 계산 결과"></canvas>
+          <p class="readout" id="readout" aria-live="polite">단면을 누르면 그 지점의 값이 나옵니다.</p>
+          <div class="cbar"><span id="cb-lo"></span><i id="cb-grad"></i><span id="cb-hi"></span></div>
+          <figcaption id="cb-unit"></figcaption>
+        </figure>
+        <div class="panel">
+          
+          <div class="chart">
+            <p class="chart-title">선택 셀 전류–전압 곡선 (전류 A, 로그 눈금)</p>
+            <svg id="iv" viewBox="0 0 560 320" role="img" aria-label="정방향과 역방향 전류–전압 곡선, 두 곡선의 간격이 메모리 윈도우"></svg>
+            <p class="legend"><span class="li"><span class="sw sw1"></span>정방향 (지운 상태에서 출발)</span><span class="li"><span class="sw sw2"></span>역방향 (쓴 상태에서 출발)</span></p>
+          </div>
+          <div class="scrub">
+            <button type="button" id="play" aria-pressed="false">재생</button>
+            <label class="sr" for="frame">게이트 전압 단계</label>
+            <input type="range" id="frame" min="0" max="21" step="1" value="16">
+            <output id="flabel" for="frame"></output>
+          </div>
+          <dl class="metrics">
+            <div><dt>메모리 윈도우</dt><dd id="m-mw">1.77 V</dd></div>
+            <div><dt>읽기 전류 비</dt><dd id="m-onoff">10<sup>9</sup>배</dd></div>
+            <div><dt>1회 계산</dt><dd id="m-sec">89초</dd></div>
+            <div><dt>계산 지점</dt><dd id="m-nodes">8,157</dd></div>
+          </dl>
+        </div>
+      </div>
+      <p class="note" id="solver-note">DEVSIM 원통 좌표(r–z) 계산 결과를 저장해 두고 보여 줍니다. 가운데 세로선이 채널 홀의 축이고, 좌우는 같은 단면을 뒤집어 그렸습니다. 가로는 2배로 늘렸습니다.</p>
+    </div>
+  </section>
+
+  <section id="doe" class="wrap sec">
+    <div class="sec-head">
+      <h2>실험 계획, 27회에서 9회로</h2>
+      <p>증착 온도, 사이클 수, 후열처리 온도를 세 단계씩 모두 조합하면 27회입니다. 직교 배열로 9회만 골라도 세 변수가 결과에 주는 영향을 각각 볼 수 있습니다.</p>
+    </div>
+    <div class="doe-ctl" role="group" aria-label="보기 방식">
+      <button type="button" data-mode="9" aria-pressed="true">9회 설계</button>
+      <button type="button" data-mode="27" aria-pressed="false">27회 전부</button>
+      <p class="doe-count" id="doe-count"></p>
+    </div>
+    <div class="doe" id="doe-grid"></div>
+    <p class="readout doe-read" id="doe-read" aria-live="polite">칸을 누르면 그 실험 조건이 나옵니다.</p>
+  </section>
+
+  <section id="flow" class="wrap sec">
+    <div class="sec-head"><h2>작동 순서</h2></div>
+    <ol class="flow">
+      <li><b>논문 검색</b><span>같은 물질과 공정을 다룬 논문에서 증착 조건을 모읍니다.</span></li>
+      <li><b>레시피 후보</b><span>AI가 모은 조건에서 가능성이 높은 범위로 후보를 좁힙니다.</span></li>
+      <li><b>소자 계산</b><span>후보 조건으로 만든 소자를 오픈소스 TCAD(DEVSIM)로 계산합니다.</span></li>
+      <li><b>다음 실험표</b><span>그래프 대신 다음에 할 9회의 실험과 넘어갈 기준을 냅니다.</span></li>
+    </ol>
+  </section>
+
+  <section id="compare" class="wrap sec">
+    <div class="sec-head"><h2>기존 TCAD와 비교</h2></div>
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th scope="col"><span class="sr">항목</span></th><th scope="col">기존 TCAD</th><th scope="col" class="us">DepoLens</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">시작 조건</th><td>물성값을 모두 알아야 시작</td><td class="us">논문 근거로 새 물질부터</td></tr>
+          <tr><th scope="row">1회 계산</th><td>수 시간~수 주, 정밀 3D</td><td class="us">약 90초, 단순화한 원기둥 모델</td></tr>
+          <tr><th scope="row">비용</th><td>유료 라이선스</td><td class="us">0원, 오픈소스</td></tr>
+          <tr><th scope="row">결과물</th><td>전기장, 전류 그래프</td><td class="us">다음 실험표와 레시피</td></tr>
+          <tr><th scope="row">정확도</th><td><b>높음</b></td><td class="us">단순 모델</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="conclude">후보를 빠르게 고르는 일은 DepoLens가, 마지막 정밀 검증은 기존 TCAD가 맡습니다.</p>
+  </section>
+
+  <section id="check" class="wrap sec">
+    <div class="sec-head"><h2>결과를 확인한 방법</h2></div>
+    <dl class="checks">
+      <div><dt>정답을 아는 문제로 시험</dt><dd>해석해가 있는 문제에서 계산 오차 <b>0.002%</b></dd></div>
+      <div><dt>계산 격자를 바꿔 보기</dt><dd>격자를 촘촘히 해도 메모리 윈도우 <b>1.77~1.78 V</b>로 유지</dd></div>
+      <div><dt>이론 한계와 비교</dt><dd>메모리 윈도우 1.77 V는 이론 최대 2.0 V의 <b>89%</b>로, 한계를 넘지 않음</dd></div>
+      <div><dt>계산으로 찾은 문제</dt><dd>패스 전압 4 V에서 옆 칸 HZO 전계가 3.48 MV/cm로 항전계 1 MV/cm를 넘어 옆 칸 기록이 바뀜. 안전한 패스 전압은 약 <b>1.1~1.4 V</b></dd></div>
+    </dl>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><b>이헌재</b>  한양대학교 전자공학부</p>
+    <p>2026 ERICA AI 커리어-톤 TRACK 2 BUILD 출품작</p>
+  </div>
+</footer>
+<script src="app.js" defer></script>
+</body>
+</html>
